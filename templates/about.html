@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="icon" href="/favicon.png">
-    <title>Your Site | About</title>
+    <title>ReplAPI | About</title>
   </head>
   <body>
     <nav>
@@ -13,10 +13,76 @@
     </nav>
 <h2>About</h2>
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-R
-<pre class="prettyprint">
-print("You can put python code here")
+ReplAPI is a module that scraped the internet to find <strong> YOUR </strong> replit data. It grabs it, and ships the data out to the variable that you are storing it in for your use! Here is how to install the module
+
+<h2> Installation </h2>
+
+In the shell, use:
+<pre class = "prettyprint">
+  pip install REPLAPI
 </pre>
+
+Or, in the replit package tab, search REPLAPI to install it via poetry!
+
+When you have it installed, you can start using it! Here is an example of how to get a users cycle(upvote) count!
+
+
+<pre class = "prettyprint">
+  import REPLAPI as repl
+  cycles = repl.replit_cycles("YourUsername")
+  print(f"I have {cycles} cycles!")
+</pre>
+
+This may be a lot to people, so lets break it down.
+<br>
+Of course, we have to import the module to have it in our code. You don't have to call the same thing as us, but we like to because it lets us remeber that when this is called, we are accessign replit data, but it dosen't matter what you call it.
+<br>
+When we have it imported, we have to use it.
+<br>
+Cycles is the variable that we are storing this data in. And then we call the function, are using the import name to specify that we are using data from there, and then we call replit_cycles. This tells us that you are using out function for grabing replit cycles! After this, you see and YourUsername in quotes. YourUsername isn't a person, so don't use that, use your own replit username! The username that you put in tells us what username to look for! If you put any replit username correctly, it will return the cycle count of the username that you put in!
+<br>
+There is a lot of lag for this, because this is utilizing a web crawler and web crawlers that have to read a lot of code and json are pretty slow, tho we are learning new ways to have it go faster, and we are continuing to improve the speed!
+
+<hr>
+
+When you finish with the basics of ReplAPI, there a bunch more functions to use, that return different data!
+
+<br>
+<br>
+
+Here is a list of all of the functions! 
+<pre>
+- replit_langs("username here") [This returns your most used langs]
+<br><br>
+- replit_post("username here") [This returns the first replit post on your profile list]
+<br><br>
+- replit_posts("username here") [This returns all of the replit posts on your profile until the load more button]
+<br><br>
+- replit_bio("username here") [This returns the users bio]
+<br><br>
+- replit_comment("username here") [This returns the first comment on your replit profile]
+<br><br>
+- replit_comments("username here") [This returns all of the replit comments on your profie until the load more button]
+<br><br>
+- replit_user() [This just returns the owner of the repl's username, this has no parameter]
+<br><br>
+- replit_name("username here") [This returns the nickname of the username]
+</pre>
+<h2> Sample Projects </h2>
+<pre class="prettyprint">
+  import REPLAPI
+  repl = REPLAPI()
+  
+  print("This will find your cycles")
+  username = input("What is the username? ")
+  try:
+    cycles = repl.replit_cycles(username)
+  except:
+    exit("Invalid Username!")
+  print(f"{username} has {cycles} cycles!")
+</pre>
+
+
 
     <script src="prism.js"></script>
     <button class="dark-button" onclick="DarkMode()"><img class="dark-image" src="imgs/Dark_Mode.svg"></button>
