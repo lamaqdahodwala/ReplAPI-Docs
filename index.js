@@ -30,6 +30,11 @@ app.get('/about', (req, res) => {
   sendFile('about.html', res)
 });
 
+
+app.get('/docs', (req, res) => {
+    sendFile('docs.html', res))
+})
+
 app.get('/style.css', (req, res) => {
   sendFile('style.css', res)
 });
